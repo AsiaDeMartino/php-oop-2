@@ -72,6 +72,14 @@ class Utente {
         $this->scontoCarrello = $this->costoCarrello - (($this->costoCarrello /100) * $this->sconto);
     }
 
+    public function checkout(){
+        if (count($this->metodiPagamento)>0) {
+            echo 'Acquisto effettuato, hai pagato '.$this->scontoCarrello.'€! <br>Ti aspettiamo per il ritiro.';
+        } else {
+            echo 'Inserisci una carta di credito per procedere al pagamento';
+        }
+    }
+
 }
 
 class UtenteRegistrato extends Utente {
@@ -92,12 +100,6 @@ class UtenteRegistrato extends Utente {
     }
 
 }
-
-$Mario = new Utente("Mario","Rossi","mariorossi@emai.it","Via di qui, 11",1234567890);
-$Mario->addMetodoPagamento("5488 4566 6128 7320","04/22","885","Mario","Rossi","Mastercard");
-// var_dump($Mario);
-$Mario->removeMetodoPagamento();
-
 
 ?>
 

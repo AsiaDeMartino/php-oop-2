@@ -21,4 +21,8 @@ class Prodotto {
 
 }
 
+$croccantini = new Prodotto('croccantini','Royal Canin','Cibo',14.50,'Vegani al pollo.');
+$dentastix = new Prodotto('Dentastix','Pedigree','Benessere',25.60,'Pacco da 105.');
+$tiragraffi = new Prodotto('Tiragraffi','Trixie','Tiragraffi',51.99,'Estremamente resistente, base solida.');
+
 ?>
