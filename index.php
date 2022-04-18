@@ -2,6 +2,16 @@
 L’utente potrà sia comprare i prodotti senza registrarsi, oppure iscriversi e ricevere il 20% di sconto su tutti i prodotti.
 Il pagamento avviene con la carta di credito, che non deve essere scaduta. -->
 
+<?php 
+
+require_once __DIR__ . '/classi/utenti.php';
+require_once __DIR__ . '/classi/prodotti.php';
+
+$carrello = [];
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +21,6 @@ Il pagamento avviene con la carta di credito, che non deve essere scaduta. -->
     <title>Document</title>
 </head>
 <body>
-    
+
 </body>
 </html>
