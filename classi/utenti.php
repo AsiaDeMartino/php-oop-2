@@ -12,6 +12,9 @@ class Utente {
     protected $telefono;
     protected $sconto = 0;
     protected $metodiPagamento = [];
+    protected $carrello = [];
+    protected $costoCarrello = 0;
+    protected $scontoCarrello = 0;
 
     function __construct(string $nome, string $cognome, string $email, string $indirizzo, int $telefono){
         $this->nome = $nome;
@@ -57,6 +60,18 @@ class Utente {
         array_pop($this->metodiPagamento);
     }
 
+    public function addCarrello($prodotto){
+        array_push($this->carrello,$prodotto);
+        $this->costoCarrello += $prodotto->prezzo;
+        $this->scontoCarrello = $this->costoCarrello - (($this->costoCarrello /100) * $this->sconto);
+    }
+
+    public function removeCarrello($id){
+        $this->costoCarrello -= $this->carrello[$id]->prezzo;
+        array_splice($this->carrello, $id, 1);
+        $this->scontoCarrello = $this->costoCarrello - (($this->costoCarrello /100) * $this->sconto);
+    }
+
 }
 
 class UtenteRegistrato extends Utente {
@@ -80,8 +95,9 @@ class UtenteRegistrato extends Utente {
 
 $Mario = new Utente("Mario","Rossi","mariorossi@emai.it","Via di qui, 11",1234567890);
 $Mario->addMetodoPagamento("5488 4566 6128 7320","04/22","885","Mario","Rossi","Mastercard");
-var_dump($Mario);
+// var_dump($Mario);
 $Mario->removeMetodoPagamento();
-var_dump($Mario);
+
 
 ?>
+

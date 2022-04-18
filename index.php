@@ -7,8 +7,6 @@ Il pagamento avviene con la carta di credito, che non deve essere scaduta. -->
 require_once __DIR__ . '/classi/utenti.php';
 require_once __DIR__ . '/classi/prodotti.php';
 
-$carrello = [];
-
 ?>
 
 
